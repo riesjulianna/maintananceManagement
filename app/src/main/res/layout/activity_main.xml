@@ -25,11 +25,32 @@
         android:layout_width="match_parent"
         android:layout_height="208dp" />
 
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:elegantTextHeight="true"
+        android:ems="10"
+        android:hint="test data to send to db..." />
+
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonSend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SEND TEST DATA TO FIREBASE" />
+
+    <Button
+        android:id="@+id/buttonGet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="#9A000000"
-        android:text="@string/hello" />
+        android:text="get test data from firebase" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="34sp" />
 
 </LinearLayout>
