@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //send to db
                 Toast.makeText(MainActivity.this, "Hi Juli", Toast.LENGTH_SHORT).show();
+                //teszt faszom
             }
         });
 
