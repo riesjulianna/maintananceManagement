@@ -60,3 +60,4 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 //dori teszt
+//az az új teszt remélem mostmár jó lesz :) dori
