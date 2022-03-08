@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 //send to db
                 Toast.makeText(MainActivity.this, "Hi Juli", Toast.LENGTH_SHORT).show();
                 //teszt merge
+                //hali dori
             }
         });
 
