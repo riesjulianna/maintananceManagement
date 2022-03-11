@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //send to db
-                Toast.makeText(MainActivity.this, "Hi Juli", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "HAALLLOOOOO", Toast.LENGTH_SHORT).show();
                 //teszt merge
                 //hali dori
             }
