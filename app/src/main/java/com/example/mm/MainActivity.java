@@ -63,3 +63,4 @@ public class MainActivity extends AppCompatActivity {
 //dori teszt
 //az az új teszt remélem mostmár jó lesz :) dori
 //abrakadabra update működj
+//03.11.proba
