@@ -10,6 +10,39 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MM">
         <activity
+            android:name=".SzolgaInstrukciokBefejezes"
+            android:exported="false" />
+        <activity
+            android:name=".HnoHibalista"
+            android:exported="false" />
+        <activity
+            android:name=".SzolgaSajatFeladatok"
+            android:exported="false" />
+        <activity
+            android:name=".SzolgaIndoklas"
+            android:exported="false" />
+        <activity
+            android:name=".SzolgaFeladatok"
+            android:exported="false" />
+        <activity
+            android:name=".LordEszkozLista"
+            android:exported="false" />
+        <activity
+            android:name=".LordSzerkeszt"
+            android:exported="false" />
+        <activity
+            android:name=".HnoFeladatok"
+            android:exported="false" />
+        <activity
+            android:name=".SzolgaMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HnoMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LordMainActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

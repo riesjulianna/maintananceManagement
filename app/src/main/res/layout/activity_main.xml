@@ -4,53 +4,99 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center|top"
+    android:background="#D3000000"
+    android:gravity="center"
     android:orientation="vertical"
-    app:layoutDescription="@xml/activity_main_scene"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="324dp"
-        android:layout_height="141dp"
-        android:fontFamily="sans-serif-black"
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="215dp"
+        app:srcCompat="@mipmap/farm_foreground" />
+
+    <EditText
+        android:id="@+id/felhasznalonev"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
         android:gravity="center"
-        android:lineSpacingExtra="12sp"
-        android:text="@string/maintanance_management_farming_edition"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="24sp" />
+        android:hint="Felhasználónév..."
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FFFFFF"
+        android:textColorHint="#838383"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/jelszo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Jelszó..."
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FFFFFF"
+        android:textColorHint="#838383"
+        android:textStyle="bold" />
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="208dp" />
-
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="match_parent"
-        android:layout_height="58dp"
-        android:elegantTextHeight="true"
-        android:ems="10"
-        android:hint="test data to send to db..." />
-
-    <Button
-        android:id="@+id/buttonSend"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="SEND TEST DATA TO FIREBASE" />
-
-    <Button
-        android:id="@+id/buttonGet"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#9A000000"
-        android:text="get test data from firebase" />
+        android:layout_height="21dp" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="34sp" />
+        android:text="Bejelentkezés mint..."
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="25dp" />
+
+    <Button
+        android:id="@+id/buttonLord"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#646464"
+        android:gravity="center"
+        android:text="Lord"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="18dp" />
+
+    <Button
+        android:id="@+id/buttonHazvezetono"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#646464"
+        android:gravity="center"
+        android:text="Házvezetőnő"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="18dp" />
+
+    <Button
+        android:id="@+id/buttonSzolga"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#646464"
+        android:gravity="center"
+        android:text="Szolga"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
 
 </LinearLayout>
