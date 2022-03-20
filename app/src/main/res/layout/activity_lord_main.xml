@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D3000000"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".LordMainActivity">
+
+    <Button
+        android:id="@+id/buttonEszkozok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#646464"
+        android:gravity="center"
+        android:text="Eszközök listázása"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="26dp" />
+
+    <Button
+        android:id="@+id/buttonSzerkesztes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#646464"
+        android:gravity="center"
+        android:text="Eszközök szerkesztése"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
+</LinearLayout>

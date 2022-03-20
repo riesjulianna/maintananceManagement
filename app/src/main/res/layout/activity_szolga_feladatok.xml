@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D3000000"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".SzolgaFeladatok">
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="kijelöl egy feladatot"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/buttonElfogad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#646464"
+        android:gravity="center"
+        android:text="Feladat elfogadása"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/buttonElutasit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#646464"
+        android:gravity="center"
+        android:text="Feladat elutasítása"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
+</LinearLayout>
