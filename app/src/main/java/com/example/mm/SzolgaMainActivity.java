@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class SzolgaMainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button osszesFeladat, sajatFeladatok;
+    Button osszesFeladat, sajatFeladatok, hiba;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,9 +18,11 @@ public class SzolgaMainActivity extends AppCompatActivity implements View.OnClic
 
         osszesFeladat = findViewById(R.id.buttonOsszesFeladat);
         sajatFeladatok = findViewById(R.id.buttonSajatFeladatok);
+        hiba  = findViewById(R.id.buttonHiba);
 
         osszesFeladat.setOnClickListener(this);
         sajatFeladatok.setOnClickListener(this);
+        hiba.setOnClickListener(this);
     }
 
     @Override
@@ -33,6 +35,10 @@ public class SzolgaMainActivity extends AppCompatActivity implements View.OnClic
             case R.id.buttonSajatFeladatok:
                 Intent sajatFeladatok = new Intent(this, SzolgaSajatFeladatok.class);
                 startActivity(sajatFeladatok);
+                break;
+            case R.id.buttonHiba:
+                Intent  hiba = new Intent(this, HibaBejentes.class);
+                startActivity(hiba);
                 break;
         }
     }
