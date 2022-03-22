@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MM">
         <activity
+            android:name=".HibaBejentes"
+            android:exported="false" />
+        <activity
             android:name=".SzolgaInstrukciokBefejezes"
             android:exported="false" />
         <activity
