@@ -36,4 +36,5 @@ public class LordMainActivity extends AppCompatActivity implements View.OnClickL
                 break;
         }
     }
+
 }

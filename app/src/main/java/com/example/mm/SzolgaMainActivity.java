@@ -42,4 +42,5 @@ public class SzolgaMainActivity extends AppCompatActivity implements View.OnClic
                 break;
         }
     }
+    
 }

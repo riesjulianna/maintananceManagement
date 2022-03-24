@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="#D3000000"
     android:gravity="center"
+    android:onClick="onClick"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -27,7 +28,7 @@
         android:textColor="#FFFFFF"
         android:textColorHighlight="#FFFFFF"
         android:textColorHint="#838383"
-        android:textStyle="bold" />
+        android:textStyle="italic" />
 
     <EditText
         android:id="@+id/jelszo"
@@ -41,7 +42,7 @@
         android:textColor="#FFFFFF"
         android:textColorHighlight="#FFFFFF"
         android:textColorHint="#838383"
-        android:textStyle="bold" />
+        android:textStyle="italic" />
 
     <Space
         android:layout_width="match_parent"
@@ -67,9 +68,12 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#646464"
         android:gravity="center"
+        android:onClick="onClick"
         android:text="Lord"
         android:textColor="#FFFFFF"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:focusable="true"
+        />
 
     <Space
         android:layout_width="match_parent"
@@ -81,9 +85,12 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#646464"
         android:gravity="center"
+        android:onClick="onClick"
         android:text="Házvezetőnő"
         android:textColor="#FFFFFF"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:focusable="true"
+        />
 
     <Space
         android:layout_width="match_parent"
@@ -95,8 +102,11 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#646464"
         android:gravity="center"
+        android:onClick="onClick"
         android:text="Szolga"
         android:textColor="#FFFFFF"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:focusable="true"
+        />
 
 </LinearLayout>
