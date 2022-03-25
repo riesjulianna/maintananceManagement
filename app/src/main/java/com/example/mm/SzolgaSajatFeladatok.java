@@ -17,13 +17,14 @@ public class SzolgaSajatFeladatok extends AppCompatActivity implements View.OnCl
         setContentView(R.layout.activity_szolga_sajat_feladatok);
 
         kezdes=findViewById(R.id.buttonKezdes);
-
         kezdes.setOnClickListener(this);
     }
 
     @Override
-    public void onClick(View view) {
+    public void onClick(View view) { //itt is sztem az lesz a baj, hogy kétszer kell nyomni a gombot
         Intent kezdes = new Intent(this, SzolgaInstrukciokBefejezes.class);
         startActivity(kezdes);
     }
 }
+
+//LOGOLÁS

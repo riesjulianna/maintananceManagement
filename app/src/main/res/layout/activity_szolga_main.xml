@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#646464"
         android:gravity="center"
-        android:text="HIBA BEJELLENTÉS"
+        android:text="HIBAJELENTÉS"
         android:textColor="#FFFFFF"
         android:textSize="24sp" />
 

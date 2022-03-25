@@ -7,12 +7,13 @@
     android:background="#D3000000"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".HibaBejentes">
+    tools:context=".Hibajelentes">
 
     <TextView
         android:id="@+id/textView10"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="Eszkoz"
         android:textColor="#FFFFFF"
         android:textSize="24sp" />
@@ -25,6 +26,7 @@
         android:id="@+id/textView11"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="probléma"
         android:textColor="#FFFFFF"
         android:textSize="24sp" />

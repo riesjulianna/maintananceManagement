@@ -1,33 +1,33 @@
 package com.example.mm;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class HibaBejentes extends AppCompatActivity implements View.OnClickListener {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class Hibajelentes extends AppCompatActivity implements View.OnClickListener {
 
     Button leadas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hiba_bejentes);
+        setContentView(R.layout.activity_hibajelentes);
 
         leadas = findViewById(R.id.buttonHibaBejelentes);
-
         leadas.setOnClickListener(this);
     }
 
 
     @Override
-    public void onClick(View view) {
+    public void onClick(View view) {//sztem itt is dupla klikkes lesz
         switch (view.getId()) {
             case R.id.buttonHibaBejelentes:
-                //Intent leadas = new Intent(this, SzolgaMainActivity.class);
-                //startActivity(leadas);
+                //hiba leadás, feladat generálás
+                Intent i = new Intent(this, SzolgaMainActivity.class);
+                startActivity(i);
                 onBackPressed();
                 break;
         }

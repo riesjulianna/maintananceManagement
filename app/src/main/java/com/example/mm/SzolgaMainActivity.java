@@ -37,7 +37,7 @@ public class SzolgaMainActivity extends AppCompatActivity implements View.OnClic
                 startActivity(sajatFeladatok);
                 break;
             case R.id.buttonHiba:
-                Intent  hiba = new Intent(this, HibaBejentes.class);
+                Intent  hiba = new Intent(this, Hibajelentes.class);
                 startActivity(hiba);
                 break;
         }
