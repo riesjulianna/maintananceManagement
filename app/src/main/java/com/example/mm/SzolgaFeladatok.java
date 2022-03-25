@@ -36,3 +36,5 @@ public class SzolgaFeladatok extends AppCompatActivity implements View.OnClickLi
         }
     }
 }
+
+//LOGOLÁS

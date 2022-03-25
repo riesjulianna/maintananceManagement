@@ -12,3 +12,5 @@ public class SzolgaInstrukciokBefejezes extends AppCompatActivity {
         setContentView(R.layout.activity_szolga_instrukciok_befejezes);
     }
 }
+
+//LOGOLÁS
