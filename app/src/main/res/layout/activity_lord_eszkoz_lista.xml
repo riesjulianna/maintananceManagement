@@ -4,16 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D3000000"
+    android:background="#D3808080"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".LordEszkozLista">
 
-    <TextView
-        android:id="@+id/textView5"
+    <ListView
+        android:id="@+id/eszkozListaLV"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="eszközlista"
-        android:textColor="#FFFFFF" />
+        android:layout_height="match_parent" />
 </LinearLayout>

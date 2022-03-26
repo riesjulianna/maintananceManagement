@@ -10,12 +10,12 @@
     tools:context=".HnoMainActivity">
 
     <Button
-        android:id="@+id/buttonHibalista"
+        android:id="@+id/buttonUjEszkoz"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="#646464"
         android:gravity="center"
-        android:text="Hibák listázása"
+        android:text="Összes feladat listázása"
         android:textColor="#FFFFFF"
         android:textSize="24sp" />
 
@@ -24,12 +24,12 @@
         android:layout_height="26dp" />
 
     <Button
-        android:id="@+id/buttonSzerkesztes"
+        android:id="@+id/buttonHnoHibabejelent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="#646464"
         android:gravity="center"
-        android:text="Összes feladat listázása"
+        android:text="Hibabejelentés"
         android:textColor="#FFFFFF"
         android:textSize="24sp" />
 </LinearLayout>

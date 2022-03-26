@@ -5,9 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#D3000000"
-    android:gravity="center"
     android:orientation="vertical"
-    tools:context=".LordSzerkeszt">
+    tools:context=".HnoFeladatSzerkeszt">
 
     <TableLayout
         android:layout_width="match_parent"
@@ -15,131 +14,207 @@
         android:layout_marginLeft="10dp">
 
         <TableRow
-            android:id="@+id/KategoriaTR"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-            <TextView
-                android:id="@+id/kategoriaTV"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Kategória:"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-            <EditText
-                android:id="@+id/kategoriaET"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:textColor="@color/white" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/AlkategoriaTR"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-            <TextView
-                android:id="@+id/alkategoriaTV"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Alkategória:"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-            <EditText
-                android:id="@+id/alkategoriaET"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:textColor="@color/white" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/EszkornevTR"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-            <TextView
-                android:id="@+id/eszkoznevTV"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Név:"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-            <EditText
-                android:id="@+id/eszkoz_neveET"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:textColor="@color/white" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/HelyTR"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-            <TextView
-                android:id="@+id/helyTV"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Hely:"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-            <EditText
-                android:id="@+id/helyET"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:textColor="@color/white" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/EszkozLeirasTR"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-            <TextView
-                android:id="@+id/eszkozLeirasTV"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Leírás:"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-            <EditText
-                android:id="@+id/eszkozLeirasET"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:textColor="@color/white" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/utolsoTR"
+            android:id="@+id/EszkozTR"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="10dp">
 
             <TextView
-                android:id="@+id/utolsoTV"
+                android:id="@+id/eszkozTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Legutolsó karbantartás:"
+                android:text="Eszköz:"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <EditText
-                android:id="@+id/utolsoET"
+                android:id="@+id/eszkoznevET"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textColor="@color/white" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/ProblemaTR"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/problemaTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Probléma:"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/problemaET"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                android:textColor="@color/white" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/DatumTR"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/datumTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dátum:"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/datumET"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="date"
+                android:textColor="@color/white" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/SzolgaTR"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/szolgaTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Szolga:"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/szolganevET"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textColor="@color/white" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/PrioritasTR"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/prioritasTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Prioritás:"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/prioritasET"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:textColor="@color/white" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/IdotartamTR"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/idotartamTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Időtartam:"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/idotartamET"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:textColor="@color/white" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/InstrukcioTR"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/instrukcioTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Instrukció:"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/instrukcioET"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                android:textColor="@color/white" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/TipusTR"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/tipusTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Típus:"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/tipusET"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textColor="@color/white" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/AllapotTR"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/allapotTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Állapot:"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/allapotET"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -149,18 +224,18 @@
     </TableLayout>
 
     <Button
-        android:id="@+id/eszkozTorlesBTN"
+        android:id="@+id/feladatTorlesBTN"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="50dp"
         android:layout_marginRight="20dp"
         android:backgroundTint="#646464"
-        android:text="Eszköz törlése"
+        android:text="Feladat törlése"
         android:textSize="24sp" />
 
     <Button
-        android:id="@+id/eszkozMentesBTN"
+        android:id="@+id/feladatMentesBTN"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
@@ -169,4 +244,5 @@
         android:backgroundTint="#646464"
         android:text="Mentés"
         android:textSize="24sp" />
+
 </LinearLayout>
