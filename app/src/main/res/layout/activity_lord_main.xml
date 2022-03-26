@@ -24,12 +24,26 @@
         android:layout_height="26dp" />
 
     <Button
-        android:id="@+id/buttonSzerkesztes"
+        android:id="@+id/buttonUjEszkoz"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="#646464"
         android:gravity="center"
-        android:text="Eszközök szerkesztése"
+        android:text="Új eszköz hozzáadása"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="26dp" />
+
+    <Button
+        android:id="@+id/buttonLordHibabejelent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#646464"
+        android:gravity="center"
+        android:text="Hibabejelentés"
         android:textColor="#FFFFFF"
         android:textSize="24sp" />
 </LinearLayout>

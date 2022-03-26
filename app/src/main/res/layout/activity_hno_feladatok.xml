@@ -4,16 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D3000000"
+    android:background="#D3808080"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".HnoFeladatok">
 
-    <TextView
-        android:id="@+id/textView4"
+    <ListView
+        android:id="@+id/hnoFeladatokLV"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="feladatok állapota és ha kell újraosztása"
-        android:textColor="#FFFFFF" />
+        android:layout_height="match_parent" />
 </LinearLayout>

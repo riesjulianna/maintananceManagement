@@ -10,13 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MM">
         <activity
+            android:name=".LordUjEszkoz"
+            android:exported="false" />
+        <activity
+            android:name=".HnoFeladatSzerkeszt"
+            android:exported="false" />
+        <activity
             android:name=".Hibajelentes"
             android:exported="false" />
         <activity
             android:name=".SzolgaInstrukciokBefejezes"
-            android:exported="false" />
-        <activity
-            android:name=".HnoHibalista"
             android:exported="false" />
         <activity
             android:name=".SzolgaSajatFeladatok"

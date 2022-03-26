@@ -5,9 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#D3000000"
-    android:gravity="center"
     android:orientation="vertical"
-    tools:context=".LordSzerkeszt">
+    tools:context=".LordUjEszkoz">
 
     <TableLayout
         android:layout_width="match_parent"
@@ -15,12 +14,13 @@
         android:layout_marginLeft="10dp">
 
         <TableRow
-            android:id="@+id/KategoriaTR"
+            android:id="@+id/UjKategoriaTR"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp">
 
             <TextView
-                android:id="@+id/kategoriaTV"
+                android:id="@+id/ujKategoriaTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Kategória:"
@@ -28,7 +28,7 @@
                 android:textSize="16sp" />
 
             <EditText
-                android:id="@+id/kategoriaET"
+                android:id="@+id/ujKategoriaET"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -37,12 +37,13 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/AlkategoriaTR"
+            android:id="@+id/UjAlkategoriaTR"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp">
 
             <TextView
-                android:id="@+id/alkategoriaTV"
+                android:id="@+id/ujAlkategoriaTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Alkategória:"
@@ -50,7 +51,7 @@
                 android:textSize="16sp" />
 
             <EditText
-                android:id="@+id/alkategoriaET"
+                android:id="@+id/ujAlkategoriaET"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -59,12 +60,13 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/EszkornevTR"
+            android:id="@+id/UjEszkoznevTR"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp">
 
             <TextView
-                android:id="@+id/eszkoznevTV"
+                android:id="@+id/ujEszkoznevTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Név:"
@@ -72,7 +74,7 @@
                 android:textSize="16sp" />
 
             <EditText
-                android:id="@+id/eszkoz_neveET"
+                android:id="@+id/ujEszkoz_neveET"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -81,12 +83,13 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/HelyTR"
+            android:id="@+id/UjHelyTR"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp">
 
             <TextView
-                android:id="@+id/helyTV"
+                android:id="@+id/ujHelyTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Hely:"
@@ -94,7 +97,7 @@
                 android:textSize="16sp" />
 
             <EditText
-                android:id="@+id/helyET"
+                android:id="@+id/ujHelyET"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -103,12 +106,13 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/EszkozLeirasTR"
+            android:id="@+id/UjEszkozLeirasTR"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp">
 
             <TextView
-                android:id="@+id/eszkozLeirasTV"
+                android:id="@+id/ujEszkozLeirasTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Leírás:"
@@ -116,7 +120,7 @@
                 android:textSize="16sp" />
 
             <EditText
-                android:id="@+id/eszkozLeirasET"
+                android:id="@+id/ujEszkozLeirasET"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -124,43 +128,10 @@
                 android:textColor="@color/white" />
         </TableRow>
 
-        <TableRow
-            android:id="@+id/utolsoTR"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp">
-
-            <TextView
-                android:id="@+id/utolsoTV"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Legutolsó karbantartás:"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-            <EditText
-                android:id="@+id/utolsoET"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:textColor="@color/white" />
-        </TableRow>
     </TableLayout>
 
     <Button
-        android:id="@+id/eszkozTorlesBTN"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginRight="20dp"
-        android:backgroundTint="#646464"
-        android:text="Eszköz törlése"
-        android:textSize="24sp" />
-
-    <Button
-        android:id="@+id/eszkozMentesBTN"
+        android:id="@+id/ujEszkozMentesBTN"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
