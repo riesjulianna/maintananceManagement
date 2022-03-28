@@ -60,16 +60,16 @@ public class MainActivity extends AppCompatActivity {
                         jlsz = document.getString("jelszo");
                     }
                         if (!(beosztas==null)) { // itt mindegyik null ha nem stimmel, ezért csak egyet ellenőrzök
-                            switch (view.getId()) {
-                                case R.id.buttonLord:
+                            switch (who) {
+                                case "lord":
                                     Intent lord = new Intent(MainActivity.this, LordMainActivity.class);
                                     startActivity(lord);
                                     break;
-                                case R.id.buttonHazvezetono:
+                                case "hazvezetono":
                                     Intent hazvezetono = new Intent(MainActivity.this, HnoMainActivity.class);
                                     startActivity(hazvezetono);
                                     break;
-                                case R.id.buttonSzolga:
+                                case "szolga":
                                     Intent szolga = new Intent(MainActivity.this, SzolgaMainActivity.class);
                                     startActivity(szolga);
                                     break;
