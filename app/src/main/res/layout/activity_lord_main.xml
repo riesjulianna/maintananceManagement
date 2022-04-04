@@ -15,6 +15,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#646464"
         android:gravity="center"
+        android:onClick="onClick"
         android:text="Eszközök listázása"
         android:textColor="#FFFFFF"
         android:textSize="24sp" />
@@ -29,6 +30,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#646464"
         android:gravity="center"
+        android:onClick="onClick"
         android:text="Új eszköz hozzáadása"
         android:textColor="#FFFFFF"
         android:textSize="24sp" />
@@ -43,7 +45,23 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#646464"
         android:gravity="center"
+        android:onClick="onClick"
         android:text="Hibabejelentés"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="26dp" />
+
+    <Button
+        android:id="@+id/buttonUjKatSzakma"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#646464"
+        android:gravity="center"
+        android:onClick="onClick"
+        android:text="Új kategória és szakma"
         android:textColor="#FFFFFF"
         android:textSize="24sp" />
 </LinearLayout>

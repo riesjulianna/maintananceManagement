@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
@@ -16,7 +17,8 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 public class MainActivity extends AppCompatActivity {
 
     Button lord, hazvezetono, szolga;
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    FirebaseDatabase db = FirebaseDatabase.getInstance();
+    FirebaseFirestore fdb = FirebaseFirestore.getInstance();
     EditText fnev, jelszo;
     String beosztas, fhnv, jlsz, who;
 
@@ -31,8 +33,22 @@ public class MainActivity extends AppCompatActivity {
         fnev = findViewById(R.id.felhasznalonev);
         jelszo = findViewById(R.id.jelszo);
 
-    }
+//        DatabaseReference ref = db.getReference().child("eszkozok");
+//        ValueEventListener eventListener = new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                for (DataSnapshot ds : snapshot.getChildren()) {
+//                    String id = ds.getKey();
+//                    Log.d("KEY---", id);
+//                }
+//            }
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//            }
+//        };
+//        ref.addListenerForSingleValueEvent(eventListener);
 
+    }
 
     public void onClick(View view){
 
@@ -48,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
 
-        db.collection("users")
+        fdb.collection("users")
                 .whereEqualTo("beosztas", who)
                 .whereEqualTo("felhasznalonev", fnev.getText().toString().trim())
                 .whereEqualTo("jelszo", jelszo.getText().toString().trim())

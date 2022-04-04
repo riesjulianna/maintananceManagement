@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MM">
         <activity
+            android:name=".LordUjKatSzakma"
+            android:exported="false" />
+        <activity
             android:name=".LordUjEszkoz"
             android:exported="false" />
         <activity
