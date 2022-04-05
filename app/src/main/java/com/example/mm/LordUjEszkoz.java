@@ -1,25 +1,33 @@
 package com.example.mm;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.UUID;
 
 public class LordUjEszkoz extends AppCompatActivity {
 
     EditText ujKategoriaET, ujAlkategoriaET, ujEszkoz_neveET,
-            ujHelyET, ujEszkozIdotartamET, ujInstrukcioET, ujProblemaET, ujUtolsoET, ujSorszamET;
+            ujHelyET, ujUtolsoET, ujInstrukcioET;
 
     Button ujEszkozMentesBTN;
 
     String ujKategoriaStr, ujAlkategoriaStr, ujEszkoz_neveStr,
-            ujHelyStr, ujEszkozIdotartamStr, ujInstrukcioStr, ujProblemaStr, ujUtolsoStr, ujSorszamStr;
+            ujHelyStr, ujUtolsoStr, ujInstrukcioStr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,11 +38,8 @@ public class LordUjEszkoz extends AppCompatActivity {
         ujAlkategoriaET = findViewById(R.id.ujAlkategoriaET);
         ujEszkoz_neveET = findViewById(R.id.ujEszkoz_neveET);
         ujHelyET = findViewById(R.id.ujHelyET);
-        ujEszkozIdotartamET = findViewById(R.id.ujEszkozIdotartamET);
-        ujInstrukcioET = findViewById(R.id.ujInstrukcioET);
-        ujProblemaET = findViewById(R.id.ujProblemaET);
         ujUtolsoET = findViewById(R.id.ujUtolsoET);
-        ujSorszamET = findViewById(R.id.ujSorszamET);
+        ujInstrukcioET = findViewById(R.id.ujInstrukcioET);
 
         ujEszkozMentesBTN = findViewById(R.id.ujEszkozMentesBTN);
 
@@ -49,37 +54,43 @@ public class LordUjEszkoz extends AppCompatActivity {
                 ujAlkategoriaStr = ujAlkategoriaET.getText().toString();
                 ujEszkoz_neveStr = ujEszkoz_neveET.getText().toString();
                 ujHelyStr = ujHelyET.getText().toString();
-                ujEszkozIdotartamStr = ujEszkozIdotartamET.getText().toString();
-                ujInstrukcioStr = ujInstrukcioET.getText().toString();
-                ujProblemaStr = ujProblemaET.getText().toString();
                 ujUtolsoStr = ujUtolsoET.getText().toString();
-                ujSorszamStr = ujSorszamET.getText().toString();
+                ujInstrukcioStr = ujInstrukcioET.getText().toString();
 
-                if(!ujSorszamStr.matches("")
-                        &&!ujKategoriaStr.matches("")
+                if(!ujKategoriaStr.matches("")
                         &&!ujAlkategoriaStr.matches("")
                         &&!ujEszkoz_neveStr.matches("")
                         &&!ujHelyStr.matches("")
-                        &&!ujEszkozIdotartamStr.matches("")
-                        &&!ujInstrukcioStr.matches("")
-                        &&!ujProblemaStr.matches("")
-                        &&!ujUtolsoStr.matches("")) {
+                        &&!ujUtolsoStr.matches("")
+                        &&!ujInstrukcioStr.matches("")) {
 
                     //egybe kell rakni a két kategóriát a konstruktornak adás elött mivel így tároljuk az adatbázisban
                     String kategoriaStr = ujKategoriaStr+"/"+ujAlkategoriaStr;
-                    EszkozHelper EszkHelper = new EszkozHelper(kategoriaStr, ujEszkoz_neveStr, ujHelyStr);
-                    EszkozHelper KarbanHelper = new EszkozHelper(ujEszkozIdotartamStr, ujInstrukcioStr, ujProblemaStr, ujUtolsoStr);
+                    EszkozHelper EszkHelper = new EszkozHelper(ujHelyStr, kategoriaStr, ujEszkoz_neveStr, ujUtolsoStr, ujInstrukcioStr);
 
                     // Adatbázis hívás
                     FirebaseDatabase db = FirebaseDatabase.getInstance();
                     DatabaseReference dbEszkozRef = db.getReference("eszkozok");
-                    //Eszkozok adatbázisba írása
-                    dbEszkozRef.child(ujSorszamStr).setValue(EszkHelper);
+                    //unique ID generálása
+                    String uniqueID = UUID.randomUUID().toString();
+                    //egyező id ellenőrzés
+                    DatabaseReference ref = db.getReference().child("eszkozok");
+                    ValueEventListener eventListener = new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            for (DataSnapshot ds : snapshot.getChildren()) {
+                                String id = ds.getKey();
+                                Log.d("KEY---", id);
+                            }
+                        }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+                        }
+                    };
+                    ref.addListenerForSingleValueEvent(eventListener);
 
-                    //Adatbázis hívás a megadott sorszám segítségével
-                    DatabaseReference dbKarbanRef = db.getReference("eszkozok/"+ujSorszamStr);
-                    //Karbantartások az elöbb létrehozott ágba írása
-                    dbKarbanRef.child("karbantartas").setValue(KarbanHelper);
+                    //Eszkozok adatbázisba írása
+                    dbEszkozRef.child(uniqueID).setValue(EszkHelper);
 
                     Toast.makeText(LordUjEszkoz.this, "Sikeres mentés!", Toast.LENGTH_SHORT).show();
                 }

@@ -14,29 +14,6 @@
         android:layout_marginLeft="10dp">
 
         <TableRow
-            android:id="@+id/UjSorszamTR"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp">
-
-            <TextView
-                android:id="@+id/ujSorszamTV"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Sorszám:"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-            <EditText
-                android:id="@+id/ujSorszamET"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:textColor="@color/white" />
-        </TableRow>
-
-        <TableRow
             android:id="@+id/UjKategoriaTR"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -129,21 +106,21 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/UjEszkozIdotartamTR"
+            android:id="@+id/UjUtolsoTR"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="10dp">
 
             <TextView
-                android:id="@+id/ujEszkozIdotartamTV"
+                android:id="@+id/ujUtolsoTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Időtartam:"
+                android:text="Utolsó:"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
             <EditText
-                android:id="@+id/ujEszkozIdotartamET"
+                android:id="@+id/ujUtolsoET"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -167,53 +144,6 @@
 
             <EditText
                 android:id="@+id/ujInstrukcioET"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:textColor="@color/white" />
-        </TableRow>
-
-
-        <TableRow
-            android:id="@+id/UjProblemaTR"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp">
-
-            <TextView
-                android:id="@+id/ujProblemaTV"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Probléma:"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-            <EditText
-                android:id="@+id/ujProblemaET"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:textColor="@color/white" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/UjUtolsoTR"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp">
-
-            <TextView
-                android:id="@+id/ujUtolsoTV"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Utolsó:"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-            <EditText
-                android:id="@+id/ujUtolsoET"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"

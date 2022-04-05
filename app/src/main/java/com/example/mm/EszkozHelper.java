@@ -1,30 +1,17 @@
 package com.example.mm;
 
 public class EszkozHelper {
-    String kategoria, nev, helyszin, idotartam, instrukcio, problema, utolso;
+    String kategoria, nev, helyszin, utolso, instrukcio;
 
     public EszkozHelper() {
     }
 
-    public EszkozHelper(String kategoria, String nev, String helyszin) {
+    public EszkozHelper(String helyszin, String kategoria, String nev, String utolso, String instrukcio) {
+        this.helyszin = helyszin;
         this.kategoria = kategoria;
         this.nev = nev;
-        this.helyszin = helyszin;
-    }
-
-    public EszkozHelper(String idotartam, String instrukcio, String problema, String utolso) {
-        this.idotartam = idotartam;
-        this.instrukcio = instrukcio;
-        this.problema = problema;
         this.utolso = utolso;
-    }
-
-    public String getIdotartam() {
-        return idotartam;
-    }
-
-    public void setIdotartam(String idotartam) {
-        this.idotartam = idotartam;
+        this.instrukcio = instrukcio;
     }
 
     public String getInstrukcio() {
@@ -33,14 +20,6 @@ public class EszkozHelper {
 
     public void setInstrukcio(String instrukcio) {
         this.instrukcio = instrukcio;
-    }
-
-    public String getProblema() {
-        return problema;
-    }
-
-    public void setProblema(String problema) {
-        this.problema = problema;
     }
 
     public String getUtolso() {
