@@ -26,7 +26,7 @@ import java.util.Map;
 public class LordUjKatSzakma extends AppCompatActivity {
 
     Button mentes, alkatment;
-    EditText kategoria, szakma, karbantartas, normaido, alkategoria,normaidoinput2;
+    EditText kategoria, szakma, karbantartas, normaido, alkategoria, normaidoinput2, karbantartas2;
     Spinner spinnerKat;
 
     List<String> list;
@@ -48,6 +48,7 @@ public class LordUjKatSzakma extends AppCompatActivity {
         spinnerKat=findViewById(R.id.spinnerKat);
         alkatment=findViewById(R.id.buttonMentes2);
         normaidoinput2=findViewById(R.id.normaidoinput2);
+        karbantartas2 = findViewById(R.id.karbantartasET2);
         list= new ArrayList<>();
 
         DatabaseReference ref = db.getReference().child("kategoriak");
@@ -92,13 +93,28 @@ public class LordUjKatSzakma extends AppCompatActivity {
         alkatment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String kat, alkat,nor;
-                kat=spinnerKat.getSelectedItem().toString();
-                alkat=alkategoria.getText().toString();
-                nor=normaidoinput2.getText().toString();
+                String kat, alkat, nor, karban;
+                kat = spinnerKat.getSelectedItem().toString();
+                alkat = alkategoria.getText().toString();
+                nor = normaidoinput2.getText().toString();
+                karban = karbantartas2.getText().toString();
 
                 DatabaseReference ref = db.getReference().child("kategoriak");
-                ref.child(kat).child(alkat).child("normaido").setValue(nor);
+                //csak azokat a mezőket hozzuk létre amikben adatok is lesznek
+                if(!nor.isEmpty()){
+                    if(!karban.isEmpty()){
+                        ref.child(kat).child(alkat).child("normaido").setValue(nor);
+                        ref.child(kat).child(alkat).child("karbantartas").setValue(karban);
+                    }
+                    else{
+                        ref.child(kat).child(alkat).child("normaido").setValue(nor);
+                    }
+                }
+                else{
+                    if(!karban.isEmpty()){
+                        ref.child(kat).child(alkat).child("karbantartas").setValue(karban);
+                    }
+                }
             }
         });
 
