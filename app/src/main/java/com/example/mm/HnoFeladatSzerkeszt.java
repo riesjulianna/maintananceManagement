@@ -1,14 +1,20 @@
 package com.example.mm;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.firebase.firestore.FirebaseFirestore;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class HnoFeladatSzerkeszt extends AppCompatActivity {
 
@@ -17,7 +23,8 @@ public class HnoFeladatSzerkeszt extends AppCompatActivity {
 
     Button feladatTorlesBTN, feladatMentesBTN;
 
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    String feladatID;
+    DatabaseReference db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +44,10 @@ public class HnoFeladatSzerkeszt extends AppCompatActivity {
         feladatTorlesBTN = findViewById(R.id.feladatTorlesBTN);
         feladatMentesBTN = findViewById(R.id.feladatMentesBTN);
 
-        //TODO: lekérdezéseket megcsinálni hozzájuk
+
+        //TODO: betölteni az adott feladatID-jú feladat adatait(elkezdve)
+        loadFeladat();
+
 
         feladatTorlesBTN.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +68,29 @@ public class HnoFeladatSzerkeszt extends AppCompatActivity {
 
                 Toast.makeText(HnoFeladatSzerkeszt.this, "Sikeres mentés!", Toast.LENGTH_SHORT).show();
                 onBackPressed();
+            }
+        });
+
+    }
+
+    public void loadFeladat() {
+        //TODO: EZ MÉG NEM JÓ, MINDIG 1-ES AZ ESZKÖZID VALAMIÉRT !!!
+        Feladat feladat = HnoFeladatok.feladat;
+        db = FirebaseDatabase.getInstance().getReference();
+        Query query = db.child("feladatok").orderByKey().equalTo(feladat.getFeladatID());
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot s : snapshot.getChildren()) {
+                    feladat.eszkozID = s.child("eszkozID").getValue().toString();
+                    eszkoznevET.setText(feladat.getEszkozID());//TODO: nemjó
+                    allapotET.setText(feladat.getAllapot());//TODO: nemjó
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
 
