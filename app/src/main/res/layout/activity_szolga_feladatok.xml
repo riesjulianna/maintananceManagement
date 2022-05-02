@@ -9,13 +9,14 @@
     android:orientation="vertical"
     tools:context=".SzolgaFeladatok">
 
-    <TextView
-        android:id="@+id/textView6"
+    <ListView
+        android:id="@+id/listviewFeladatok"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="kijelöl egy feladatot"
-        android:textColor="#FFFFFF" />
+        android:layout_height="423dp"
+        android:background="#D8D7D7"
+        android:choiceMode="singleChoice"
+        android:clickable="true"
+        android:listSelector="@android:color/white"/>
 
     <Button
         android:id="@+id/buttonElfogad"
