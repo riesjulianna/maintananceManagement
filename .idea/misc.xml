@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Egyetem/Tananyag/MM/app/src/main/res/layout/activity_hibajelentes.xml" value="0.1933876811594203" />
+        <entry key="..\:/Egyetem/Tananyag/MM/app/src/main/res/layout/activity_lord_main.xml" value="0.1933876811594203" />
+        <entry key="..\:/Egyetem/Tananyag/MM/app/src/main/res/layout/activity_lord_szolga.xml" value="0.1933876811594203" />
+        <entry key="..\:/Egyetem/Tananyag/MM/app/src/main/res/layout/activity_lord_uj_eszkoz.xml" value="0.1933876811594203" />
+        <entry key="..\:/Egyetem/Tananyag/MM/app/src/main/res/layout/activity_lord_uj_kat_szakma.xml" value="0.1933876811594203" />
         <entry key="..\:/Egyetem/Tananyag/kozosproject/maintananceManagement/app/src/main/res/layout/activity_hiba_bejentes.xml" value="0.20416666666666666" />
         <entry key="..\:/Egyetem/Tananyag/kozosproject/maintananceManagement/app/src/main/res/layout/activity_hibajelentes.xml" value="0.20416666666666666" />
         <entry key="..\:/Egyetem/Tananyag/kozosproject/maintananceManagement/app/src/main/res/layout/activity_lord_uj_kat_szakma.xml" value="0.20416666666666666" />
