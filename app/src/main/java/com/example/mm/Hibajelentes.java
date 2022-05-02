@@ -139,7 +139,7 @@ public class Hibajelentes extends AppCompatActivity  {
                     refi.child(id).child("eszkozID").setValue(idnev);
                     refi.child(id).child("problema").setValue(problem);
                     refi.child(id).child("tipus").setValue("rendkivuli");
-                    refi.child(id).child("date").setValue(currentDate);
+                    refi.child(id).child("datum").setValue(currentDate);
                     onBackPressed();
                 }
 
