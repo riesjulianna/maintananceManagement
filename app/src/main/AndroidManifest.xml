@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity
+            android:name=".LordSzolga"
+            android:exported="false" />
+        <activity
             android:name=".LordUjKatSzakma"
             android:exported="false" />
         <activity

@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class LordMainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button eszkozok, ujEszkoz, hibabejelent, ujkatszakma;
+    Button eszkozok, ujEszkoz, hibabejelent, ujkatszakma, szolga;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +20,7 @@ public class LordMainActivity extends AppCompatActivity implements View.OnClickL
         ujEszkoz = findViewById(R.id.buttonUjEszkoz);
         hibabejelent = findViewById(R.id.buttonLordHibabejelent);
         ujkatszakma = findViewById(R.id.buttonUjKatSzakma);
+        szolga = findViewById(R.id.buttonKarbantarto);
 
     }
 
@@ -42,6 +43,9 @@ public class LordMainActivity extends AppCompatActivity implements View.OnClickL
                 Intent ujkatszakma = new Intent(this, LordUjKatSzakma.class);
                 startActivity(ujkatszakma);
                 break;
+            case R.id.buttonKarbantarto:
+                Intent szolga = new Intent(this, LordSzolga.class);
+                startActivity(szolga);
         }
     }
 

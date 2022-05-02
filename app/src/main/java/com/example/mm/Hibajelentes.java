@@ -114,7 +114,7 @@ public class Hibajelentes extends AppCompatActivity  {
                 //unique ID generálása
                 id = UUID.randomUUID().toString();
                 //egyező id ellenőrzés
-                DatabaseReference ref = db.getReference().child("eszkozok");
+                DatabaseReference ref = db.getReference().child("feladatok");
                 ValueEventListener eventListener = new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -129,14 +129,20 @@ public class Hibajelentes extends AppCompatActivity  {
                 };
                 ref.addListenerForSingleValueEvent(eventListener);
 
+                if (problem.isEmpty())
+                {
+                    Toast.makeText(Hibajelentes.this, "Kérem írja le a problémát.", Toast.LENGTH_SHORT).show();
+                }else {
 
-                DatabaseReference  refi= db.getReference().child("feladatok");
-                refi.child(id).child("allapot").setValue("Új");
-                refi.child(id).child("eszkozID").setValue(idnev);
-                refi.child(id).child("problema").setValue(problem);
-                refi.child(id).child("tipus").setValue("rendkivuli");
-                refi.child(id).child("date").setValue(currentDate);
-                onBackPressed();
+                    DatabaseReference refi = db.getReference().child("feladatok");
+                    refi.child(id).child("allapot").setValue("Új");
+                    refi.child(id).child("eszkozID").setValue(idnev);
+                    refi.child(id).child("problema").setValue(problem);
+                    refi.child(id).child("tipus").setValue("rendkivuli");
+                    refi.child(id).child("date").setValue(currentDate);
+                    onBackPressed();
+                }
+
             }
         });
     }
