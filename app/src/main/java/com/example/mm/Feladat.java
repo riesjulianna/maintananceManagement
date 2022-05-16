@@ -16,22 +16,19 @@ public class Feladat extends Application {
     String szolgaID;
     String tipus;
 
+
+
     public Feladat() {
     }
 
-    public Feladat(String feladatID, String allapot, String datum, String eszkozID, String idotartam, String indoklas, String instrukcio, String prioritas, String problema, String szolgaID, String tipus) {
+    public Feladat(String feladatID, String szolgaID, String allapot, String instrukcio) {
         this.feladatID = feladatID;
         this.allapot = allapot;
-        this.datum = datum;
-        this.eszkozID = eszkozID;
-        this.idotartam = idotartam;
-        this.indoklas = indoklas;
         this.instrukcio = instrukcio;
-        this.prioritas = prioritas;
-        this.problema = problema;
         this.szolgaID = szolgaID;
-        this.tipus = tipus;
     }
+
+
 
     public Feladat(String feladatID, String szolgaID, String allapot) {
         this.feladatID = feladatID;
@@ -123,6 +120,9 @@ public class Feladat extends Application {
 
     @Override
     public String toString() {
-        return "Feladat: "+feladatID+", Szolga: "+szolgaID+", Állapot: "+allapot;
+        return   "Feladat: "     +feladatID
+                +", Szolga: "    +szolgaID
+                +", Állapot: "   +allapot
+                +", Instrukcio: "+instrukcio;
     }
 }

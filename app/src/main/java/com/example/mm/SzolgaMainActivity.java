@@ -16,8 +16,8 @@ public class SzolgaMainActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_szolga_main);
 
-        osszesFeladat = findViewById(R.id.buttonOsszesFeladat);
-        sajatFeladatok = findViewById(R.id.buttonSajatFeladatok);
+        osszesFeladat = findViewById(R.id.buttonSajatFeladataim);
+        sajatFeladatok = findViewById(R.id.buttonMegkezdettFeladataim);
         hiba  = findViewById(R.id.buttonHiba);
 
         osszesFeladat.setOnClickListener(this);
@@ -28,12 +28,12 @@ public class SzolgaMainActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.buttonOsszesFeladat:
-                Intent osszesFeladat = new Intent(this, SzolgaFeladatok.class);
+            case R.id.buttonSajatFeladataim:
+                Intent osszesFeladat = new Intent(this, SzolgaSajatFeladatok.class);
                 startActivity(osszesFeladat);
                 break;
-            case R.id.buttonSajatFeladatok:
-                Intent sajatFeladatok = new Intent(this, SzolgaSajatFeladatok.class);
+            case R.id.buttonMegkezdettFeladataim:
+                Intent sajatFeladatok = new Intent(this, SzolgaMegkezdett.class);
                 startActivity(sajatFeladatok);
                 break;
             case R.id.buttonHiba:

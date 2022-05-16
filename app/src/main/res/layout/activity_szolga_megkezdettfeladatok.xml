@@ -7,24 +7,26 @@
     android:background="#D3000000"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".SzolgaSajatFeladatok">
+    tools:context=".SzolgaMegkezdett">
 
-    <TextView
-        android:id="@+id/textView8"
+    <ListView
+        android:id="@+id/listviewFeladatok"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="kijelölt feladat"
-        android:textColor="#FFFFFF" />
+        android:layout_height="549dp"
+        android:background="#D8D7D7"
+        android:choiceMode="singleChoice"
+        android:clickable="true"
+        android:listSelector="@android:color/white" />
 
     <Button
-        android:id="@+id/buttonKezdes"
+        android:id="@+id/buttonBefejez"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="#646464"
         android:gravity="center"
-        android:text="Feladat kezdése"
+        android:text="Feladat befejezése"
         android:textColor="#FFFFFF"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:onClick="BefejezOnClick"/>
 
 </LinearLayout>
