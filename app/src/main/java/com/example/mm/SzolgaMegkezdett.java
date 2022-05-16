@@ -1,12 +1,12 @@
 package com.example.mm;
 
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,56 +21,49 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
-public class SzolgaFeladatok extends AppCompatActivity implements View.OnClickListener {
+public class SzolgaMegkezdett extends AppCompatActivity  {
 
-    Button elfogad, elutasit;
+    Button befejez;
     ListView listview;
     DatabaseReference db;
     ArrayList<Feladat> feladatokArrayList = new ArrayList<>();
     ArrayAdapter<Feladat> arrayAdapter;
     String loggedIN="";
     String feladatID = "";
-    String szolgaIDfeladat = "";
+    String szolgaID = "";
     String allapot = "";
+    String instrukcio = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_szolga_feladatok);
+        setContentView(R.layout.activity_szolga_megkezdettfeladatok);
 
         User user=MainActivity.user;
         loggedIN=user.id;
+
+        befejez=findViewById(R.id.buttonBefejez);
 
         listview = (ListView) findViewById(R.id.listviewFeladatok);
         arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, feladatokArrayList);
         listview.setAdapter(arrayAdapter);
         listview.setOnItemClickListener((parent, view, position, id) -> {
             feladatID = feladatokArrayList.get(position).feladatID;
-            szolgaIDfeladat = feladatokArrayList.get(position).szolgaID;
+            szolgaID = feladatokArrayList.get(position).szolgaID;
             allapot = feladatokArrayList.get(position).allapot;
+            instrukcio = feladatokArrayList.get(position).instrukcio;
             arrayAdapter.notifyDataSetChanged();
         });
-
-        elfogad = findViewById(R.id.buttonElfogad);
-        elutasit = findViewById(R.id.buttonElutasit);
-        elfogad.setOnClickListener(this);
-        elutasit.setOnClickListener(this);
 
         load();
     }
 
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.buttonElfogad:
-                //feladat elfogadásának rögzitése adatbázisba
-                break;
-            case R.id.buttonElutasit:
-                Intent elutasit = new Intent(this, SzolgaIndoklas.class);
-                startActivity(elutasit);
-                break;
-        }
+    public void BefejezOnClick(View v)
+    {
+        Toast.makeText(this, "Megnyomva.", Toast.LENGTH_LONG).show();
     }
+
 
     public void load() {
         db = FirebaseDatabase.getInstance().getReference("feladatok");
@@ -81,15 +74,19 @@ public class SzolgaFeladatok extends AppCompatActivity implements View.OnClickLi
                 feladatID = snapshot.getKey();
                 allapot = snapshot.child("allapot").getValue().toString();
                 if ((snapshot.child("szolgaID").getValue()) != null) {
-                    szolgaIDfeladat = snapshot.child("szolgaID").getValue().toString();
+                    szolgaID = snapshot.child("szolgaID").getValue().toString();
                 } else {
-                    szolgaIDfeladat = "nincs";
+                    szolgaID = "nincs";
                 }
-                feladatokArrayList.add(new Feladat(feladatID, szolgaIDfeladat, allapot));
-                feladatokArrayList.removeIf(obj -> (!obj.szolgaID.equals(loggedIN)));//attól függjön melyik szolga jelentkezik be!
+                if((snapshot.child("instrukcio").getValue()) != null) {
+                    instrukcio = snapshot.child("instrukcio").getValue().toString();
+                }else{
+                    instrukcio="nem található";
+                }
+                feladatokArrayList.add(new Feladat(feladatID, szolgaID, allapot, instrukcio));
+                feladatokArrayList.removeIf(obj -> (!obj.szolgaID.equals(loggedIN) || !obj.allapot.equals("Megkezdve")));
                 arrayAdapter.notifyDataSetChanged();
             }
-
             @Override
             public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
             }
@@ -105,7 +102,5 @@ public class SzolgaFeladatok extends AppCompatActivity implements View.OnClickLi
         });
     }
 
-
 }
 
-//LOGOLÁS

@@ -10,12 +10,12 @@
     tools:context=".SzolgaMainActivity">
 
     <Button
-        android:id="@+id/buttonOsszesFeladat"
+        android:id="@+id/buttonSajatFeladataim"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="#646464"
         android:gravity="center"
-        android:text="Összes feladat"
+        android:text="Saját feladataim"
         android:textColor="#FFFFFF"
         android:textSize="24sp" />
 
@@ -24,12 +24,12 @@
         android:layout_height="26dp" />
 
     <Button
-        android:id="@+id/buttonSajatFeladatok"
+        android:id="@+id/buttonMegkezdettFeladataim"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="#646464"
         android:gravity="center"
-        android:text="Saját feladatok"
+        android:text="Megkezdett feladataim"
         android:textColor="#FFFFFF"
         android:textSize="24sp" />
 

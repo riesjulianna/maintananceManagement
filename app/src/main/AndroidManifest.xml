@@ -25,16 +25,13 @@
             android:name=".Hibajelentes"
             android:exported="false" />
         <activity
-            android:name=".SzolgaInstrukciokBefejezes"
-            android:exported="false" />
-        <activity
-            android:name=".SzolgaSajatFeladatok"
+            android:name=".SzolgaMegkezdett"
             android:exported="false" />
         <activity
             android:name=".SzolgaIndoklas"
             android:exported="false" />
         <activity
-            android:name=".SzolgaFeladatok"
+            android:name=".SzolgaSajatFeladatok"
             android:exported="false" />
         <activity
             android:name=".LordEszkozLista"
