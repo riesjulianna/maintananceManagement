@@ -40,8 +40,10 @@ public class HnoFeladatok extends AppCompatActivity {
             allapot = feladatokArrayList.get(position).allapot;
             arrayAdapter.notifyDataSetChanged();
 
-            //TODO: ha rákattintok egy itemre a listában akkor jelenjen meg a szerkesztős oldala
+            //szerkesztos oldal megnyitasa
             Intent szerkeszt = new Intent(this,HnoFeladatSzerkeszt.class);
+            szerkeszt.putExtra("feladatID", feladatID);
+            szerkeszt.putExtra("szolgaID", szolgaID);
             startActivity(szerkeszt);
 
         });

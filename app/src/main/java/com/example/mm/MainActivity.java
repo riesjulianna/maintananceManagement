@@ -197,7 +197,7 @@ public class MainActivity extends AppCompatActivity {
                                 String random_id = UUID.randomUUID().toString();
 
                                 DatabaseReference refi = FDdb.getReference().child("feladatok");
-                                refi.child(random_id).child("allapot").setValue("Ütemezve");
+                                refi.child(random_id).child("allapot").setValue("Új");
                                 refi.child(random_id).child("datum").setValue(currentDate);
                                 refi.child(random_id).child("eszkozID").setValue(generalando.get(i));
                                 refi.child(random_id).child("idotartam").setValue(normaidok.get(i));
