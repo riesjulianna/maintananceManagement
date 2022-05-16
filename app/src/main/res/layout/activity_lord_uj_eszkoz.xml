@@ -27,13 +27,17 @@
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
-            <EditText
+            <Spinner
                 android:id="@+id/ujKategoriaET"
+                android:layout_width="match_parent"
+                android:layout_height="40dp" />
+
+            <Button
+                android:id="@+id/alkat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:textColor="@color/white" />
+                android:backgroundTint="#646464"
+                android:text="Alkategoria" />
         </TableRow>
 
         <TableRow
@@ -50,13 +54,10 @@
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
-            <EditText
+            <Spinner
                 android:id="@+id/ujAlkategoriaET"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:textColor="@color/white" />
+                android:layout_width="match_parent"
+                android:layout_height="40dp" />
         </TableRow>
 
         <TableRow

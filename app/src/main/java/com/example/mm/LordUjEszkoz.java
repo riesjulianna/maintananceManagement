@@ -6,8 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.Task;
@@ -17,17 +19,25 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class LordUjEszkoz extends AppCompatActivity {
 
-    EditText ujKategoriaET, ujAlkategoriaET, ujEszkoz_neveET,
+    EditText  ujEszkoz_neveET,
             ujHelyET, ujUtolsoET, ujInstrukcioET;
 
-    Button ujEszkozMentesBTN;
+    Button ujEszkozMentesBTN, alkat;
 
     String ujKategoriaStr, ujAlkategoriaStr, ujEszkoz_neveStr,
             ujHelyStr, ujUtolsoStr, ujInstrukcioStr;
+
+    Spinner ujKategoriaET, ujAlkategoriaET;
+
+    List<String> list,lista;
+
+    FirebaseDatabase db = FirebaseDatabase.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +51,73 @@ public class LordUjEszkoz extends AppCompatActivity {
         ujUtolsoET = findViewById(R.id.ujUtolsoET);
         ujInstrukcioET = findViewById(R.id.ujInstrukcioET);
 
+        alkat = findViewById(R.id.alkat);
         ujEszkozMentesBTN = findViewById(R.id.ujEszkozMentesBTN);
+
+        list= new ArrayList<>();
+        lista = new ArrayList<>();
+
+        DatabaseReference ref = db.getReference().child("kategoriak");
+        ValueEventListener eventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    String id = ds.getKey();
+                    list.add(id);
+
+
+                }
+                ArrayAdapter<String> adapter = new ArrayAdapter<>(LordUjEszkoz.this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, list);
+                adapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
+                ujKategoriaET.setAdapter(adapter);
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        };
+        ref.addListenerForSingleValueEvent(eventListener);
+
+        alkat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String kat;
+
+                kat = ujKategoriaET.getSelectedItem().toString();
+
+                DatabaseReference refi = db.getReference().child("kategoriak").child(kat).child("alkategoria");
+                ValueEventListener eventListener = new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot ds : snapshot.getChildren()) {
+                            String id = ds.getKey();
+                            lista.add(id);
+
+
+                        }
+                        ArrayAdapter<String> adapter = new ArrayAdapter<>(LordUjEszkoz.this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, lista);
+                        adapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
+                        ujAlkategoriaET.setAdapter(adapter);
+
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                };
+                refi.addListenerForSingleValueEvent(eventListener);
+
+                lista.clear();
+            }
+
+
+
+        });
 
         //TODO: db updatet megcsinálni hozzájuk
 
@@ -50,8 +126,8 @@ public class LordUjEszkoz extends AppCompatActivity {
             public void onClick(View view) {
 
                 //TODO: mentés gomb leprogramozása
-                ujKategoriaStr = ujKategoriaET.getText().toString();
-                ujAlkategoriaStr = ujAlkategoriaET.getText().toString();
+                ujKategoriaStr = ujKategoriaET.getSelectedItem().toString();
+                ujAlkategoriaStr = ujAlkategoriaET.getSelectedItem().toString();
                 ujEszkoz_neveStr = ujEszkoz_neveET.getText().toString();
                 ujHelyStr = ujHelyET.getText().toString();
                 ujUtolsoStr = ujUtolsoET.getText().toString();
