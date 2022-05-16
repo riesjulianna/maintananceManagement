@@ -123,6 +123,7 @@ public class Hibajelentes extends AppCompatActivity  {
                             Log.d("KEY---", id);
                         }
                     }
+
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
                     }
@@ -140,6 +141,10 @@ public class Hibajelentes extends AppCompatActivity  {
                     refi.child(id).child("problema").setValue(problem);
                     refi.child(id).child("tipus").setValue("rendkivuli");
                     refi.child(id).child("datum").setValue(currentDate);
+                    refi.child(id).child("idotartam").setValue("");
+                    refi.child(id).child("instrukcio").setValue("");
+                    refi.child(id).child("prioritas").setValue("");
+                    refi.child(id).child("szolgaID").setValue("");
                     onBackPressed();
                 }
 
