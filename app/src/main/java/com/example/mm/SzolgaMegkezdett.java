@@ -1,5 +1,6 @@
 package com.example.mm;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -59,9 +60,19 @@ public class SzolgaMegkezdett extends AppCompatActivity  {
         load();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public void BefejezOnClick(View v)
     {
-        Toast.makeText(this, "Megnyomva.", Toast.LENGTH_LONG).show();
+        // Adatbázis hívás
+        FirebaseDatabase db = FirebaseDatabase.getInstance();
+        DatabaseReference dbFeladatokRef = db.getReference("feladatok");
+
+        if(feladatID != null){
+            dbFeladatokRef.child(feladatID).child("allapot").setValue("Befejezve");
+            Toast.makeText(this, "Sikeresen Befejezve a(z) "+feladatID+" sorszámú feladat!", Toast.LENGTH_LONG).show();
+        }else{
+            Toast.makeText(this, "Válassz ki egy feladatot!", Toast.LENGTH_LONG).show();
+        }
     }
 
 
@@ -83,15 +94,53 @@ public class SzolgaMegkezdett extends AppCompatActivity  {
                 }else{
                     instrukcio="nem található";
                 }
+                feladatokArrayList.removeIf(obj -> (obj.feladatID.equals(feladatID)));
                 feladatokArrayList.add(new Feladat(feladatID, szolgaID, allapot, instrukcio));
                 feladatokArrayList.removeIf(obj -> (!obj.szolgaID.equals(loggedIN) || !obj.allapot.equals("Megkezdve")));
                 arrayAdapter.notifyDataSetChanged();
+                feladatID = null;
             }
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                feladatID = snapshot.getKey();
+                allapot = snapshot.child("allapot").getValue().toString();
+                if ((snapshot.child("szolgaID").getValue()) != null) {
+                    szolgaID = snapshot.child("szolgaID").getValue().toString();
+                } else {
+                    szolgaID = "nincs";
+                }
+                if((snapshot.child("instrukcio").getValue()) != null) {
+                    instrukcio = snapshot.child("instrukcio").getValue().toString();
+                }else{
+                    instrukcio="nem található";
+                }
+                feladatokArrayList.removeIf(obj -> (obj.feladatID.equals(feladatID)));
+                feladatokArrayList.add(new Feladat(feladatID, szolgaID, allapot, instrukcio));
+                feladatokArrayList.removeIf(obj -> (!obj.szolgaID.equals(loggedIN) || !obj.allapot.equals("Megkezdve")));
+                arrayAdapter.notifyDataSetChanged();
+                feladatID = null;
             }
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+                feladatID = snapshot.getKey();
+                allapot = snapshot.child("allapot").getValue().toString();
+                if ((snapshot.child("szolgaID").getValue()) != null) {
+                    szolgaID = snapshot.child("szolgaID").getValue().toString();
+                } else {
+                    szolgaID = "nincs";
+                }
+                if((snapshot.child("instrukcio").getValue()) != null) {
+                    instrukcio = snapshot.child("instrukcio").getValue().toString();
+                }else{
+                    instrukcio="nem található";
+                }
+                feladatokArrayList.removeIf(obj -> (obj.feladatID.equals(feladatID)));
+                feladatokArrayList.add(new Feladat(feladatID, szolgaID, allapot, instrukcio));
+                feladatokArrayList.removeIf(obj -> (!obj.szolgaID.equals(loggedIN) || !obj.allapot.equals("Megkezdve")));
+                arrayAdapter.notifyDataSetChanged();
+                feladatID = null;
             }
             @Override
             public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {

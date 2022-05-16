@@ -10,10 +10,26 @@
     tools:context=".SzolgaIndoklas">
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="elutasitas indoklása"
-        android:textColor="#FFFFFF" />
+        android:text="Indoklás:"
+        android:textColor="#F3EEEE"
+        android:textSize="34sp" />
+
+    <EditText
+        android:id="@+id/et_indoklas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/bt_elutasit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:text="Elutasítás" />
 </LinearLayout>
