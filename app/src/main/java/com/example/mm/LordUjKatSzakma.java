@@ -82,10 +82,52 @@ public class LordUjKatSzakma extends AppCompatActivity {
                 kar=karbantartas.getText().toString();
                 nor=normaido.getText().toString();
 
-                DatabaseReference ref = db.getReference().child("kategoriak");
-                ref.child(kat).child("szakma").setValue(szak);
-                ref.child(kat).child("karbantartas").setValue(kar);
-                ref.child(kat).child("normaido").setValue(nor);
+                if (kat.isEmpty() || szak.isEmpty() || kar.isEmpty() || nor.isEmpty())
+                {
+                    Toast.makeText(LordUjKatSzakma.this, "Minden adatot ki kell tölteni!", Toast.LENGTH_SHORT).show();
+                }
+                else {
+
+                    DatabaseReference ref = db.getReference().child("kategoriak");
+                    ref.child(kat).child("szakma").setValue(szak);
+                    ref.child(kat).child("karbantartas").setValue(kar);
+                    ref.child(kat).child("normaido").setValue(nor);
+
+                    kategoria.setText("");
+                    szakma.setText("");
+                    karbantartas.setText("");
+                    normaido.setText("");
+
+                    list.clear();
+
+                    DatabaseReference refi = db.getReference().child("kategoriak");
+                    ValueEventListener eventListener = new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            for (DataSnapshot ds : snapshot.getChildren()) {
+                                String id = ds.getKey();
+                                list.add(id);
+                            }
+                            ArrayAdapter<String> adapter = new ArrayAdapter<>(LordUjKatSzakma.this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, list);
+                            adapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
+                            spinnerKat.setAdapter(adapter);
+
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    };
+                    refi.addListenerForSingleValueEvent(eventListener);
+                }
+
+
+
+
+
+
 
             }
         });
@@ -100,21 +142,31 @@ public class LordUjKatSzakma extends AppCompatActivity {
                 karban = karbantartas2.getText().toString();
 
                 DatabaseReference ref = db.getReference().child("kategoriak");
-                //csak azokat a mezőket hozzuk létre amikben adatok is lesznek
+                //ures string legyen vagy inkabb kérjem le az anyjatol?
                 if(!nor.isEmpty()){
                     if(!karban.isEmpty()){
-                        ref.child(kat).child(alkat).child("normaido").setValue(nor);
-                        ref.child(kat).child(alkat).child("karbantartas").setValue(karban);
+                        ref.child(kat).child("alkategoria").child(alkat).child("normaido").setValue(nor);
+                        ref.child(kat).child("alkategoria").child(alkat).child("karbantartas").setValue(karban);
                     }
                     else{
-                        ref.child(kat).child(alkat).child("normaido").setValue(nor);
+                        ref.child(kat).child("alkategoria").child(alkat).child("normaido").setValue(nor);
+                        ref.child(kat).child("alkategoria").child(alkat).child("karbantartas").setValue("");
                     }
                 }
                 else{
                     if(!karban.isEmpty()){
-                        ref.child(kat).child(alkat).child("karbantartas").setValue(karban);
+                        ref.child(kat).child("alkategoria").child(alkat).child("normaido").setValue("");
+                        ref.child(kat).child("alkategoria").child(alkat).child("karbantartas").setValue(karban);
+                    }
+                    else {
+                        ref.child(kat).child("alkategoria").child(alkat).child("normaido").setValue("");
+                        ref.child(kat).child("alkategoria").child(alkat).child("karbantartas").setValue("");
                     }
                 }
+
+                alkategoria.setText("");
+                normaidoinput2.setText("");
+                karbantartas2.setText("");
             }
         });
 

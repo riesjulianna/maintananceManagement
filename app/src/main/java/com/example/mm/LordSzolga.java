@@ -110,12 +110,10 @@ public class LordSzolga extends AppCompatActivity {
                 };
                 ref.addListenerForSingleValueEvent(eventListener);
 
-                if (nevm.isEmpty())
+                if (nevm.isEmpty() || felh.isEmpty())
                 {
-                    if (felh.isEmpty())
-                    {
                         Toast.makeText(LordSzolga.this, "Adjon meg egy nevet és egy felhasználó nevet.", Toast.LENGTH_SHORT).show();
-                    }
+
                 }else{
                     if (jelszom.isEmpty())
                     {
@@ -127,45 +125,45 @@ public class LordSzolga extends AppCompatActivity {
                     refi.child(id).child("felhnev").setValue(felh);
                     refi.child(id).child("jelszo").setValue(jelszom);
                     refi.child(id).child("szakma").setValue(szakmae);
-                }
 
-                nev.setText("");
-                jelszo.setText("");
-                felhnev.setText("");
-                szakma.setText("");
+                    nev.setText("");
+                    jelszo.setText("");
+                    felhnev.setText("");
+                    szakma.setText("");
 
-                list.clear();
-                lista.clear();
+                    list.clear();
+                    lista.clear();
 
-                DatabaseReference refke = db.getReference().child("users");
-                ValueEventListener eventListenerke = new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        for (DataSnapshot ds : snapshot.getChildren()) {
-                            String id = ds.getKey();
-                            String b = snapshot.child(id).child("beosztas").getValue().toString();
-                            if (b.equals("szolga"))
-                            {
-                                String n = snapshot.child(id).child("nev").getValue().toString();
-                                list.add(n);
-                                lista.add(id);
+                    DatabaseReference refke = db.getReference().child("users");
+                    ValueEventListener eventListenerke = new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            for (DataSnapshot ds : snapshot.getChildren()) {
+                                String id = ds.getKey();
+                                String b = snapshot.child(id).child("beosztas").getValue().toString();
+                                if (b.equals("szolga"))
+                                {
+                                    String n = snapshot.child(id).child("nev").getValue().toString();
+                                    list.add(n);
+                                    lista.add(id);
+                                }
+
+
                             }
+                            ArrayAdapter<String> adapter = new ArrayAdapter<>(LordSzolga.this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, list);
+                            adapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
+                            szolga.setAdapter(adapter);
 
 
                         }
-                        ArrayAdapter<String> adapter = new ArrayAdapter<>(LordSzolga.this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, list);
-                        adapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
-                        szolga.setAdapter(adapter);
 
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
 
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                };
-                refke.addListenerForSingleValueEvent(eventListenerke);
+                        }
+                    };
+                    refke.addListenerForSingleValueEvent(eventListenerke);
+                }
 
             }
         });
